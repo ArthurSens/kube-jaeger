@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/component: jaeger
+    app.kubernetes.io/name: jaeger
+    app.kubernetes.io/version: 1.8.0
+    control-plane: elastic-operator
+  name: elastic-webhook-server
+  namespace: default
+spec:
+  ports:
+  - name: https
+    port: 443
+    targetPort: 9443
+  selector:
+    control-plane: elastic-operator

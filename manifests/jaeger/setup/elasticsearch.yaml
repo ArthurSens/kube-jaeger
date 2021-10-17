@@ -1,0 +1,15 @@
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: elastic-jaeger
+  namespace: default
+spec:
+  nodeSets:
+  - config:
+      node.data: true
+      node.ingest: true
+      node.master: true
+      node.store.allow_mmap: false
+    count: 1
+    name: default
+  version: 7.5.0
